@@ -3,6 +3,11 @@
 //
 // Commands:
 //   hubot ping -- return pong
+//   hubot whoami -- return your name
+//   hubot owl {text} -- return url of searching items by using {text}
+//   hubot brain set {key} {value} -- regist data
+//   hubot brain get {key} -- get data
+//   hubot brain dump -- display all data
 
 module.exports = function (robot) {
   var SAMPLE = 'SAMPLE';
