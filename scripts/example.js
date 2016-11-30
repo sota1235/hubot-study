@@ -5,6 +5,8 @@
 //   hubot ping -- return pong
 
 module.exports = function (robot) {
+  var SAMPLE = 'SAMPLE';
+
   /**
    * hubot {command}の実装例
    */
@@ -38,5 +40,42 @@ module.exports = function (robot) {
     var query = msg.match[1];
 
     msg.send('http://owl.style.dev.istyle.local/search?q=' + query);
+  });
+
+  /**
+   * データを永続化する
+   */
+
+  /**
+   * データをセット
+   */
+  robot.respond(/brain set\s(.+)\s(.+)/i, function (msg) {
+    var key   = msg.match[1];
+    var value = msg.match[2];
+
+    var data = robot.brain.get(SAMPLE) || {};
+    data[key] = value;
+    robot.brain.set(SAMPLE, data);
+    msg.send('Setting data success!');
+  });
+
+  /**
+   * データを取得
+   */
+  robot.respond(/brain get\s(.+)/i, function (msg) {
+    var key = msg.match[1];
+
+    var data  = robot.brain.get(SAMPLE) || {};
+    var value = data[key];
+    msg.send('Getting data success! Data is ' + value + '.');
+  });
+
+  /**
+   * 全データをdump
+   */
+  robot.respond(/brain dump/i, function (msg) {
+    var data = robot.brain.get(SAMPLE) || {};
+
+    msg.send(JSON.stringify(data));
   });
 };
