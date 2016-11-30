@@ -4,6 +4,9 @@
   "private": true,
   "author": "sota1235 <sota1235@gmail.com>",
   "description": "Hubot for in-house study session.",
+  "scripts": {
+    "start": "./bin/hubot"
+  },
   "dependencies": {
     "hubot": "^2.19.0",
     "hubot-help": "^0.2.0",
