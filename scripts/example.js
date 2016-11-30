@@ -24,10 +24,19 @@ module.exports = function (robot) {
    */
   robot.respond(/whoami/i, function (msg) {
     // 発言された部屋
-    room = msg.message.room
+    var room = msg.message.room
     // 発言したユーザー
-    user = msg.message.user.name
+    var user = msg.message.user.name
 
     msg.send('あなたの名前は' + user + 'です');
+  });
+
+  /**
+   * 正規表現でコマンドを抜き出す
+   */
+  robot.respond(/owl\s+(.+)/i, function (msg) {
+    var query = msg.match[1];
+
+    msg.send('http://owl.style.dev.istyle.local/search?q=' + query);
   });
 };
