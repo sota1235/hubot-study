@@ -9,6 +9,8 @@ Repository for in-house study session.
 
 ### Usage
 
+Exec `npm run start`.
+
 ### Install
 
 ```
