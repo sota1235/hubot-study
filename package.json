@@ -1,0 +1,13 @@
+{
+  "name": "hubot-study",
+  "version": "0.0.0",
+  "private": true,
+  "author": "sota1235 <sota1235@gmail.com>",
+  "description": "Hubot for in-house study session.",
+  "dependencies": {
+    "hubot": "^2.19.0"
+  },
+  "engines": {
+    "node": "0.10.x"
+  }
+}
